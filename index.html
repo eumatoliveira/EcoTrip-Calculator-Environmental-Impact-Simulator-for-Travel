@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack | Calculadora de Carbono</title>
+    <meta name="description" content="Calcule sua pegada de carbono com tecnologia moderna.">
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="text-center">
+            <div class="logo"
+                style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--color-primary);">
+                🌿 EcoTrack
+            </div>
+            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem;">
+                Sua Pegada,<br>Nosso Futuro.
+            </h1>
+            <p style="color: var(--color-text-muted); font-size: 1.125rem;">
+                Analise seu impacto ambiental em segundos.
+            </p>
+        </header>
+
+        <main>
+            <div class="grid">
+                <!-- Transporte -->
+                <article class="card">
+                    <div class="card-icon">🚗</div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Transporte</h2>
+
+                    <div class="input-group">
+                        <label for="transport-type">Veículo</label>
+                        <select id="transport-type"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="transport-dist">Distância Mensal</label>
+                        <input type="number" id="transport-dist" placeholder="0" min="0" inputmode="numeric">
+                        <span class="unit">km</span>
+                    </div>
+                </article>
+
+                <!-- Energia -->
+                <article class="card">
+                    <div class="card-icon">⚡</div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Energia</h2>
+
+                    <div class="input-group">
+                        <label for="energy-kwh">Consumo Mensal</label>
+                        <input type="number" id="energy-kwh" placeholder="0" min="0" inputmode="numeric">
+                        <span class="unit">kWh</span>
+                    </div>
+                </article>
+
+                <!-- Resíduos -->
+                <article class="card">
+                    <div class="card-icon">🗑️</div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Resíduos</h2>
+
+                    <div class="input-group">
+                        <label for="waste-kg">Lixo Semanal</label>
+                        <input type="number" id="waste-kg" placeholder="0" min="0" inputmode="numeric">
+                        <span class="unit">kg</span>
+                    </div>
+                </article>
+
+                <!-- Alimentação -->
+                <article class="card">
+                    <div class="card-icon">🍽️</div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Alimentação</h2>
+
+                    <div class="input-group">
+                        <label for="food-type">Dieta Principal</label>
+                        <select id="food-type"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="food-kg">Consumo Mensal</label>
+                        <input type="number" id="food-kg" placeholder="0" min="0" inputmode="numeric">
+                        <span class="unit">kg</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center">
+                <button id="calculate-btn" class="btn-primary">
+                    <span>Calcular Impacto</span>
+                    <span>🚀</span>
+                </button>
+            </div>
+
+            <section id="result-section" class="result-panel" hidden>
+                <h2 style="font-size: 1.5rem; margin-bottom: 2rem;">Resultado da Análise</h2>
+
+                <div class="score-display">
+                    <div class="content">
+                        <span id="total-emission" class="number">0</span>
+                        <small style="color: var(--color-text-muted); font-weight: 600;">kg CO₂e</small>
+                    </div>
+                </div>
+
+                <p id="result-message" style="font-size: 1.25rem; margin-bottom: 2rem; color: var(--color-text-main);">
+                    ...</p>
+
+                <div id="result-details"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; text-align: left;">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
